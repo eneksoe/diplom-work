@@ -1,5 +1,5 @@
 {
-  "fistName": "Liza",
+  "firstName": "Liza",
   "lastName": "Simpson",
   "registrationCode": "245215",
   "email": "liza@test.com",
@@ -11,3 +11,4 @@
   "skuCode": "644214",
   "untiPrice": "980"
 }
+

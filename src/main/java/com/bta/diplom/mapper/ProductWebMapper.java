@@ -5,7 +5,7 @@ import com.bta.diplom.model.Product;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ProductWebMapper implements WebMapper<ProductDto, Product>{
+public class ProductWebMapper implements WebMapper<ProductDto, Product> {
 
     @Override
     public ProductDto toDto(Product entity) {

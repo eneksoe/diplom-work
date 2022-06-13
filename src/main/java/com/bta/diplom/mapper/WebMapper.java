@@ -8,15 +8,17 @@ public interface WebMapper<D, E> {
 
     E toEntity(D dto);
 
-    default List<D> toDtos(List<E> entities){
-       return entities.stream()
-               .map(entity->toDto(entity))
-               .collect(Collectors.toList());
+    default List<D> toDtos(List<E> entities) {
+        return entities.stream()
+                .map(entity -> toDto(entity))
+                .collect(Collectors.toList());
     }
 
-    default List<E> toEntities(List<D> dtos){
+    default List<E> toEntities(List<D> dtos) {
         return dtos.stream()
-                .map(dto->toEntity(dto))
+                .map(dto -> toEntity(dto))
                 .collect(Collectors.toList());
-    };
+    }
+
+    ;
 }

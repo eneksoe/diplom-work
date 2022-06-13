@@ -17,14 +17,20 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping("/all")
-    public List<ProductDto> getAll(){
+    public List<ProductDto> getAll() {
         return productService.getAll();
     }
 
     @PostMapping("/create")
-    public ResponseEntity<ProductDto> createProduct(@RequestBody ProductDto product){
+    public ResponseEntity<ProductDto> createProduct(@RequestBody ProductDto product) {
         productService.create(product);
         return new ResponseEntity<>(product, HttpStatus.OK);
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<ProductDto> update(@RequestBody ProductDto product) {
+        final ProductDto updatedProduct = productService.update(product);
+        return new ResponseEntity<>(updatedProduct, HttpStatus.OK);
     }
 
 

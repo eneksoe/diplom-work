@@ -6,7 +6,10 @@ import java.util.List;
 
 public interface CustomerService {
     void create(CustomerDto customer);
-    void update(CustomerDto customer);
+
+    CustomerDto update(CustomerDto customer);
+
+    void delete(String email);
 
     List<CustomerDto> getAll();
 }

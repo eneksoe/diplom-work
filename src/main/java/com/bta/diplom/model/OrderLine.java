@@ -4,6 +4,9 @@ import lombok.*;
 
 import javax.persistence.*;
 
+import static javax.persistence.CascadeType.ALL;
+import static javax.persistence.FetchType.EAGER;
+
 @Builder
 @Getter
 @Setter
@@ -24,7 +27,7 @@ public class OrderLine {
 
     private int quantity;
 
-    @ManyToOne
+    @ManyToOne(cascade = ALL, fetch = EAGER)
     @JoinColumn(name = "customer_order_id")
     private CustomerOrder customerOrder;
 }

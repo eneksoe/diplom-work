@@ -20,7 +20,7 @@ import static javax.persistence.FetchType.EAGER;
 @Table(name = "customer_order")
 public class CustomerOrder {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "order_number")

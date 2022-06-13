@@ -16,6 +16,11 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
+    @DeleteMapping("/delete")
+    public void deleteCustomer(@RequestBody String email){
+        customerService.delete(email);
+    }
+
     @PostMapping("/create")
     public ResponseEntity<CustomerDto> createCustomer(@RequestBody CustomerDto customer) {
         customerService.create(customer);
@@ -23,7 +28,13 @@ public class CustomerController {
     }
 
     @GetMapping("/all")
-   public List<CustomerDto> getAll(){
-        return  customerService.getAll();
+    public List<CustomerDto> getAll() {
+        return customerService.getAll();
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<CustomerDto> update(@RequestBody CustomerDto customer) {
+        final CustomerDto updatedCustomer = customerService.update(customer);
+        return new ResponseEntity<>(updatedCustomer, HttpStatus.OK);
     }
 }
