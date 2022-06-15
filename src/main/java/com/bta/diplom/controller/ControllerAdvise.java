@@ -14,7 +14,8 @@ public class ControllerAdvise {
 
     @ExceptionHandler(value = {
             ConstraintViolationException.class,
-            ResolvingException.class
+            ResolvingException.class,
+            RuntimeException.class
     })
     public ResponseEntity<Object> handleStatus400(HttpServletRequest request, final ConstraintViolationException exception) {
         System.out.println(request);

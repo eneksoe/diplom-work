@@ -1,9 +1,10 @@
-package com.bta.diplom.service;
+package com.bta.diplom.service.impl;
 
 import com.bta.diplom.dto.ProductDto;
 import com.bta.diplom.mapper.WebMapper;
 import com.bta.diplom.model.Product;
 import com.bta.diplom.repository.ProductRepository;
+import com.bta.diplom.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

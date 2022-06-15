@@ -16,10 +16,7 @@ import static javax.persistence.FetchType.EAGER;
 
 @Entity
 @Table(name = "order_line")
-public class OrderLine {
-    @Id
-    @GeneratedValue
-    private Long id;
+public class OrderLine extends AbstractBaseEntity{
 
     @ManyToOne
     @JoinColumn(name = "product_id")

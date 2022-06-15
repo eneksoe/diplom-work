@@ -1,0 +1,1 @@
+alter table activation_link rename column user_accaount_id to user_account_id;

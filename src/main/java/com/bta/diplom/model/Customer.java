@@ -19,10 +19,7 @@ import static javax.persistence.FetchType.LAZY;
 @ToString
 
 @Entity
-public class Customer {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Customer extends AbstractBaseEntity {
 
     @Size(max = 20)
     @Column(name = "first_name", length = 20)

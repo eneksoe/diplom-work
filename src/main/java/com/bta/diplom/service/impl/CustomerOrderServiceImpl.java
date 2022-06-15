@@ -1,9 +1,10 @@
-package com.bta.diplom.service;
+package com.bta.diplom.service.impl;
 
 import com.bta.diplom.dto.CustomerOrderDto;
 import com.bta.diplom.mapper.WebMapper;
 import com.bta.diplom.model.CustomerOrder;
 import com.bta.diplom.repository.CustomerOrderRepository;
+import com.bta.diplom.service.CustomerOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

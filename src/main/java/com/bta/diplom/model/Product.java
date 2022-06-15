@@ -17,10 +17,7 @@ import java.util.List;
 @ToString
 
 @Entity
-public class Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Product extends AbstractBaseEntity {
 
     @Size(max = 100)
     @NotBlank

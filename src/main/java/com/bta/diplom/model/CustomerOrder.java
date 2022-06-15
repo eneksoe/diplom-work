@@ -18,10 +18,7 @@ import static javax.persistence.FetchType.EAGER;
 
 @Entity
 @Table(name = "customer_order")
-public class CustomerOrder {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class CustomerOrder extends AbstractBaseEntity{
 
     @Column(name = "order_number")
     @Size(max = 20)
