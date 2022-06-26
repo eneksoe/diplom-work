@@ -1,6 +1,7 @@
 package com.bta.diplom.controller;
 
 import com.bta.diplom.dto.CustomerDto;
+import com.bta.diplom.model.Customer;
 import com.bta.diplom.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,8 +18,9 @@ public class CustomerController {
     private CustomerService customerService;
 
     @DeleteMapping("/delete")
-    public void deleteCustomer(@RequestBody String email){
-        customerService.delete(email);
+    public ResponseEntity<?> deleteCustomer(@PathVariable (value = "email") String email){
+        
+       return ResponseEntity.ok(email);
     }
 
     @PostMapping("/create")

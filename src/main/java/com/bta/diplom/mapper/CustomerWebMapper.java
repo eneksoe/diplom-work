@@ -9,6 +9,10 @@ public class CustomerWebMapper implements WebMapper<CustomerDto, Customer> {
 
     @Override
     public CustomerDto toDto(Customer entity) {
+        if (entity == null) {
+            return null;
+        }
+
         return CustomerDto.builder()
                 .firstName(entity.getFirstName())
                 .email(entity.getEmail())
@@ -17,9 +21,12 @@ public class CustomerWebMapper implements WebMapper<CustomerDto, Customer> {
                 .telephone(entity.getTelephone())
                 .build();
     }
-
     @Override
     public Customer toEntity(CustomerDto dto) {
+        if (dto == null) {
+            return null;
+        }
+
         return Customer.builder()
                 .firstName(dto.getFirstName())
                 .email(dto.getEmail())

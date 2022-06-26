@@ -25,12 +25,14 @@ public class CustomerServiceImpl implements CustomerService {
     public void create(CustomerDto customer) {
         final Customer entity = mapper.toEntity(customer);
         repository.save(entity);
-
     }
 
     @Override
     public CustomerDto update(CustomerDto customer) {
         final String email = customer.getEmail();
+        if(email == null || email.isEmpty()){
+            throw new RuntimeException("Email must be not Null or Empty!");
+        }
         Customer customerFromDb = repository.findByEmail(email);
         if (customerFromDb == null) {
             String message = "Customer with email = " + email + "does not exist!";
@@ -45,7 +47,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void delete(String email) {
-        repository.deleteByEmail(email);
+        repository.deleteCustomerByEmail(email);
     }
 
     @Override

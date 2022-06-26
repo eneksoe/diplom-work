@@ -4,16 +4,18 @@ import com.bta.diplom.repository.ActivationLinkRepository;
 import com.bta.diplom.service.ActivationLinkCleanService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.time.ZonedDateTime;
 
 @Slf4j
-@AllArgsConstructor
+@Service
 public class ActivationLinkCleanServiceImpl implements ActivationLinkCleanService {
 
-    /*@Autowired*/
+    @Autowired
     private ActivationLinkRepository activationLinkRepository;
 
     @Scheduled(initialDelay = 2_000L, fixedRate = 10_000L)

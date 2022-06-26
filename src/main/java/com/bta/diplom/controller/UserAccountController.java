@@ -22,7 +22,7 @@ public class UserAccountController {
 
     @GetMapping("/activate")
     public ResponseEntity<?> activate(@PathVariable String code){
-        userAccountService.activate(code); //TODO findByUID
+        userAccountService.activate(code);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

@@ -4,6 +4,10 @@ import com.bta.diplom.model.ActivationLink;
 import com.bta.diplom.repository.ActivationLinkRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Collections;
 
@@ -11,20 +15,18 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
+@ExtendWith(MockitoExtension.class)
 class ActivationLinkCleanServiceImplTest {
+    @Mock
     private ActivationLinkRepository activationLinkRepository;
-    private ActivationLinkCleanServiceImpl instanceUnderTest;
 
-    @BeforeEach
-    void beforeEach(){
-        activationLinkRepository = mock(ActivationLinkRepository.class);
-        instanceUnderTest =  new ActivationLinkCleanServiceImpl(activationLinkRepository);
-    }
+    @InjectMocks
+    private ActivationLinkCleanServiceImpl instanceUnderTest;
 
     @Test
     public void testIfNoExpiredActivationLinks(){
         //given
-        when(activationLinkRepository.findByCreatedBefore(any())).thenReturn(Collections.emptyList());
+        lenient().when(activationLinkRepository.findByCreatedBefore(any())).thenReturn(Collections.emptyList());
 
         //when
         instanceUnderTest.clean();
@@ -35,7 +37,7 @@ class ActivationLinkCleanServiceImplTest {
 
     @Test
     public void testIfExpiredActivationLinks(){
-        when(activationLinkRepository.findByCreatedBefore(any()))
+        lenient().when(activationLinkRepository.findByCreatedBefore(any()))
                 .thenReturn(Collections.singletonList(
                         ActivationLink.builder().build()));
 
@@ -47,7 +49,7 @@ class ActivationLinkCleanServiceImplTest {
 
     @Test
     public void testIfExpiredActivationLinksAreNull(){
-        when(activationLinkRepository.findByCreatedBefore(any()))
+        lenient().when(activationLinkRepository.findByCreatedBefore(any()))
                 .thenReturn(null);
 
         instanceUnderTest.clean();

@@ -8,6 +8,7 @@ import com.bta.diplom.model.Product;
 import com.bta.diplom.repository.OrderLineRepository;
 import com.bta.diplom.repository.ProductRepository;
 import com.bta.diplom.service.OrderLinerService;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,9 +18,6 @@ import java.util.List;
 @Slf4j
 @Service
 public class OrderLineServiceImpl implements OrderLinerService {
-
-    @Autowired
-    private ProductRepository productRepository;
 
     @Autowired
     OrderLineRepository orderLineRepository;

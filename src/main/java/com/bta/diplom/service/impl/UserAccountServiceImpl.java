@@ -8,6 +8,7 @@ import com.bta.diplom.model.UserAccount;
 import com.bta.diplom.repository.ActivationLinkRepository;
 import com.bta.diplom.repository.UserAccountRepository;
 import com.bta.diplom.service.UserAccountService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -47,6 +48,9 @@ public class UserAccountServiceImpl implements UserAccountService {
     @Transactional
     @Override
     public void activate(String code) {
+        if (code == null || code.isEmpty()) {
+            throw new RuntimeException("Activation code must be not null or Empty!");
+        }
         final var activationLink = activationLinkRepository.findByCode(code);
         checkActivationLink(activationLink, code);
         activationLink.getUserAccount().setActive(true);
@@ -58,8 +62,8 @@ public class UserAccountServiceImpl implements UserAccountService {
             throw new RuntimeException("Invalid code in activation link:" + code);
         }
         final Duration between = Duration.between(
-                ZonedDateTime.now().toInstant(),
-                activationLink.getCreated().toInstant());
+                activationLink.getCreated().toInstant(),
+                ZonedDateTime.now().toInstant());
         final long waitingPeriodInDays = between.toDays();
         if (waitingPeriodInDays >= 1) {
             throw new RuntimeException("Activation link with code: " + code + " already expired");

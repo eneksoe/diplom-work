@@ -5,6 +5,7 @@ import com.bta.diplom.mapper.WebMapper;
 import com.bta.diplom.model.Product;
 import com.bta.diplom.repository.ProductRepository;
 import com.bta.diplom.service.ProductService;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
