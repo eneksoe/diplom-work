@@ -9,5 +9,5 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
     Customer findByEmail(String email);
 
-    Customer deleteCustomerByEmail(String email);
+    Customer deleteByEmail(String email);
 }

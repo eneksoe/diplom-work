@@ -17,18 +17,18 @@ public class CustomerOrderWebMapper implements WebMapper<CustomerOrderDto, Custo
     @Override
     public CustomerOrderDto toDto(CustomerOrder entity) {
         return CustomerOrderDto.builder()
-                .customerEmail(entity.getCustomer().getEmail())
+                //.customerEmail(entity.getCustomer().getEmail())
                 .orderNumber(entity.getOrderNumber())
-                .submissionDate(entity.getSubmissionDate())
+                //.submissionDate(entity.getSubmissionDate())
                 .build();
     }
 
     @Override
     public CustomerOrder toEntity(CustomerOrderDto dto) {
-        var customer = customerResolver.resolveByEmail(dto.getCustomerEmail());
+        var customer = customerResolver.resolveByEmail(dto.getCustomer().getEmail());
         return CustomerOrder.builder()
                 .orderNumber(dto.getOrderNumber())
-                .submissionDate(dto.getSubmissionDate())
+               // .submissionDate(dto.getSubmissionDate())
                 .customer(customer)
                 .build();
     }

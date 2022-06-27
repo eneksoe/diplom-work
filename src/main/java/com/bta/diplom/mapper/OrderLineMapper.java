@@ -19,20 +19,20 @@ public class OrderLineMapper implements WebMapper<OrderLineDto, OrderLine> {
     @Override
     public OrderLineDto toDto(OrderLine entity) {
         return OrderLineDto.builder()
-                .customerOrder(entity.getCustomerOrder().getOrderNumber())
+               // .customerOrder(entity.getCustomerOrder().getOrderNumber())
                 .quantity(entity.getQuantity())
-                .productSkuCode(entity.getProduct().getSkuCode())
+               // .productSkuCode(entity.getProduct().getSkuCode())
                 .build();
     }
 
     @Override
     public OrderLine toEntity(OrderLineDto dto) {
-        var customerOrder = customerOrderResolver.resolveByOrderNumber(dto.getCustomerOrder());
-        var product = productResolver.resolveBySkuCode(dto.getProductSkuCode());
+       // var customerOrder = customerOrderResolver.resolveByOrderNumber(dto.getCustomerOrder());
+       // var product = productResolver.resolveBySkuCode(dto.getProductSkuCode());
         return OrderLine.builder()
-                .customerOrder(customerOrder)
+               // .customerOrder(customerOrder)
                 .quantity(dto.getQuantity())
-                .product(product)
+               // .product(product)
                 .build();
     }
 }

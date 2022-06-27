@@ -10,11 +10,10 @@ import java.util.List;
 
 @Data
 @Builder
-@AllArgsConstructor
-@NoArgsConstructor
 public class CustomerOrderDto {
-    private String customerEmail;
+    private CustomerDto customer;
     private String orderNumber;
-    private ZonedDateTime submissionDate;
+
     private List<OrderLineDto> orderLines;
+
 }

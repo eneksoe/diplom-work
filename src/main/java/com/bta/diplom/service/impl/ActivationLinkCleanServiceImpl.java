@@ -18,7 +18,7 @@ public class ActivationLinkCleanServiceImpl implements ActivationLinkCleanServic
     @Autowired
     private ActivationLinkRepository activationLinkRepository;
 
-    @Scheduled(initialDelay = 2_000L, fixedRate = 10_000L)
+   // @Scheduled(initialDelay = 2_000L, fixedRate = 10_000L)
     @Transactional
     @Override
     public void clean() {

@@ -12,7 +12,4 @@ import lombok.NoArgsConstructor;
 public class OrderLineDto {
     private ProductDto product;
     private Integer quantity;
-    private Integer productSkuCode;
-    private String customerOrder;
-
 }

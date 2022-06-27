@@ -8,7 +8,7 @@
         {
           "product": {
             "name": "Iphone",
-            "skuCode": "AAAWS",
+            "skuCode": 256344,
             "unitPrice": 700
           },
           "quantity": 4
@@ -16,7 +16,7 @@
         {
           "product": {
             "name": "Xiaomi",
-            "skuCode": "RTTTYYY",
+            "skuCode": 455225,
             "unitPrice": 300
           },
           "quantity": 40
@@ -31,7 +31,7 @@
         {
           "product": {
             "name": "coronaVac",
-            "skuCode": "YYYTTT",
+            "skuCode": 85621,
             "unitPrice": 10
           },
           "quantity": 8000
@@ -39,7 +39,7 @@
         {
           "product": {
             "name": "moderna",
-            "skuCode": "YTRREE",
+            "skuCode": 46214,
             "unitPrice": 30
           },
           "quantity": 10000

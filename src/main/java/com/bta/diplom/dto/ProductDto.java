@@ -7,10 +7,7 @@ import lombok.Data;
 @Builder
 public class ProductDto {
     private String name;
-
     private Integer skuCode;
-
     private Integer unitPrice;
-
     private Integer orderLineCount;
 }
